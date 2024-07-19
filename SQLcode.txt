@@ -1,0 +1,31 @@
+CREATE DATABASE DMO CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+USE DMO;
+
+CREATE TABLE tasks (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    entity_name VARCHAR(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
+    task_type VARCHAR(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
+    task_title TEXT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
+    office_responsibility VARCHAR(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
+    status VARCHAR(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
+    priority INT,
+    bank_responsibility VARCHAR(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
+    communication_date DATETIME,
+    expected_completion_date DATETIME,
+    action TEXT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
+    last_update_date DATETIME,
+    notes TEXT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
+    actual_completion_date VARCHAR(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
+    email_title TEXT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci
+)
+CREATE TABLE update_logs (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    task_id INT,
+    column_name VARCHAR(255),
+    old_value TEXT,
+    new_value TEXT,
+    updated_by VARCHAR(255),
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
